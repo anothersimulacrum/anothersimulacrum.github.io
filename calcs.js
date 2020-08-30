@@ -62,7 +62,7 @@ function refresh_static()
 	let lvl = weariness_level( page.burnt.value, page.digest.value, page.fatigue.value, page.morale.value );
 	let weary = weariness( page.burnt.value, page.digest.value );
 	let thresh = weary_thresh( page.fatigue.value, page.morale.value );
-	page.staticOut.innerHTML = "<p>Level: " + lvl + " Weariness: " + weary + " Threshold: " + thresh + "</p>";
+	page.staticOut.innerHTML = "<p>Level: " + lvl + "</p><p>Weariness: " + weary + "</p><p>Threshold: " + thresh + "</p>";
 }
 
 page.staticBtn.addEventListener( "click", function() {
