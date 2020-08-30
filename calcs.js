@@ -98,6 +98,20 @@ function do_tests()
 	soldier_12h();
 }
 
+function interpret( data )
+{
+        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
+	for( var i = 0; i < data.length; ++i ) {
+		var datum = data[i];
+		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
+		if( new_weary != c_weariness ) {
+			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
+			c_weariness = new_weary;
+		}
+	}
+	log( "Final weariness: " + weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+}
+
 function dig_24h()
 {
 	title( "Digging 24h" );
@@ -163,17 +177,7 @@ function dig_24h()
 		[5447,2150,281,0],[5453,2150,282,0],[5459,2150,283,0],[5465,2150,284,0],[5471,2150,285,0],
 		[5477,2150,286,0],[5483,2150,287,0],[5489,2150,288,0]
 	]
-
-        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
-	for( var i = 0; i < data.length; ++i ) {
-		var datum = data[i];
-		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
-		if( new_weary != c_weariness ) {
-			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
-			c_weariness = new_weary;
-		}
-	}
-	log( weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+	interpret( data );
 }
 
 function wait_24h()
@@ -242,17 +246,7 @@ function wait_24h()
 		[0,0,284,0],[0,0,285,0],[0,0,286,0],[0,0,287,0],[0,0,288,0],
 		[0,0,289,0],
 	]
-
-        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
-	for( var i = 0; i < data.length; ++i ) {
-		var datum = data[i];
-		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
-		if( new_weary != c_weariness ) {
-			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
-			c_weariness = new_weary;
-		}
-	}
-	log( weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+	interpret( data );
 }
 
 function desk_8h()
@@ -282,17 +276,7 @@ function desk_8h()
 		[1090,1983,91,0],[1102,1983,92,0],[1114,1983,93,0],[1126,1983,94,0],[1138,2011,95,0],
 		[1150,2011,96,0],[1162,2011,97,0],
 	]
-
-        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
-	for( var i = 0; i < data.length; ++i ) {
-		var datum = data[i];
-		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
-		if( new_weary != c_weariness ) {
-			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
-			c_weariness = new_weary;
-		}
-	}
-	log( weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+	interpret( data );
 }
 
 function plant_8h()
@@ -322,17 +306,7 @@ function plant_8h()
 		[2135,1983,89,0],[2159,1983,90,0],[2183,1983,91,0],[2207,1983,92,0],[2231,1983,93,0],
 		[2255,2011,94,0],[2279,2011,95,0],[2303,2011,96,0],
 	]
-
-        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
-	for( var i = 0; i < data.length; ++i ) {
-		var datum = data[i];
-		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
-		if( new_weary != c_weariness ) {
-			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
-			c_weariness = new_weary;
-		}
-	}
-	log( weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+	interpret( data );
 }
 
 function soldier_8h()
@@ -362,17 +336,7 @@ function soldier_8h()
 		[3983,1983,88,0],[4007,1983,89,0],[4031,1983,90,0],[4055,1983,91,0],[4079,1983,92,0],
 		[4103,1983,93,0],[4127,2011,94,0],[4150,2011,95,0],[4162,2011,96,0],
 	]
-
-        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
-	for( var i = 0; i < data.length; ++i ) {
-		var datum = data[i];
-		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
-		if( new_weary != c_weariness ) {
-			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
-			c_weariness = new_weary;
-		}
-	}
-	log( weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+	interpret( data );
 }
 
 function soldier_12h()
@@ -412,17 +376,7 @@ function soldier_12h()
 		[4550,2111,138,0],[4556,2111,139,0],[4561,2111,140,0],[4567,2111,141,0],[4573,2118,142,0],
 		[4579,2118,143,0],[4585,2118,144,0],[4591,2118,145,0],
 	]
-
-        var c_weariness = weariness_level( data[0][0], data[0][1], data[0][2], data[0][3] );
-	for( var i = 0; i < data.length; ++i ) {
-		var datum = data[i];
-		var new_weary = weariness_level( datum[0], datum[1], datum[2], datum[3] );
-		if( new_weary != c_weariness ) {
-			log( ( i * 5 + 5 ) + " minutes: weary from " + c_weariness + " to " + new_weary );
-			c_weariness = new_weary;
-		}
-	}
-	log( weariness( data[data.length - 1][0], data[data.length - 1][1] ) );
+	interpret( data );
 }
 
 refresh();
