@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Weariness</title>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<label>Weary BMR Multiplier</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="bmrMult" type="text"></input>
+				</td>
+				<td>
+					<input id="bmrMultCommit" type="button" value="Set"></input>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Initial Threshold Scaling</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="initScale" type="text"></input>
+				</td>
+				<td>
+					<input id="initScaleCommit" type="button" value="Set"></input>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Progressive Threshold Scaling</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="threshScale" type="text"></input>
+				</td>
+				<td>
+					<input id="threshScaleCommit" type="button" value="Set"></input>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="recalc" type="button" value="Calculate"></input>
+				</td>
+			</tr>
+		</table>
+			<br/>
+		<span id="log"></span>
+		<script src="calcs.js"></script>
+	</body>
+</html>
