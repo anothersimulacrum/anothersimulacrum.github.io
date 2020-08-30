@@ -20,7 +20,7 @@ function weariness( tracker, intake )
 	if( intake > tracker ) {
 		return tracker / 2;
 	}
-	return tracker - intake;
+	return tracker - ( intake / 2 );
 }
 
 function weariness_level( tracker, intake, fatigue, morale )
@@ -48,7 +48,26 @@ let page = {
 	threshScaleButton: document.getElementById( "threshScaleCommit" ),
 	recalc: document.getElementById( "recalc" ),
 	log: document.getElementById( "log" ),
+
+	burnt: document.getElementById( "burntCal" ),
+	digest: document.getElementById( "digestCal" ),
+	fatigue: document.getElementById( "fatigue" ),
+	morale: document.getElementById( "morale" ),
+	staticBtn: document.getElementById( "staticCalc" ),
+	staticOut: document.getElementById( "staticOut" ),
 }
+
+function refresh_static()
+{
+	let lvl = weariness_level( page.burnt.value, page.digest.value, page.fatigue.value, page.morale.value );
+	let weary = weariness( page.burnt.value, page.digest.value );
+	let thresh = weary_thresh( page.fatigue.value, page.morale.value );
+	page.staticOut.innerHTML = "<p>Level: " + lvl + " Weariness: " + weary + " Threshold: " + thresh + "</p>";
+}
+
+page.staticBtn.addEventListener( "click", function() {
+    refresh_static();
+});
 
 function refresh()
 {
@@ -56,6 +75,7 @@ function refresh()
 	page.initScale.value = initial_step;
 	page.threshScale.value = thresh_scaling;
 	page.log.innerHTML = "";
+	refresh_static();
 }
 
 page.bmrMultButton.addEventListener( "click", function() {
